@@ -1,0 +1,4 @@
+# robots.txt
+User-agent: *
+# Disallow: /yt-admin/
+# Sitemap: https://yutoshi.com/sitemap.xml

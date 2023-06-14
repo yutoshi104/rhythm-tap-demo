@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !\.css$
+    RewriteCond %{REQUEST_URI} !\.js$
+    RewriteCond %{REQUEST_URI} !\.map$
+    RewriteCond %{REQUEST_URI} !\.jpg$
+    RewriteCond %{REQUEST_URI} !\.gif$
+    RewriteCond %{REQUEST_URI} !\.png$
+    RewriteCond %{REQUEST_URI} !\.jpeg$
+    RewriteCond %{REQUEST_URI} !\.json$
+    RewriteCond %{REQUEST_URI} !\.xml$
+    RewriteCond %{REQUEST_URI} !\.txt$
+    RewriteCond %{REQUEST_URI} !\.ttf$
+    RewriteRule ^.*$ index.php
+</IfModule>
+
+#<If "%{REQUEST_URI} =~ /\x2Fadmin\x2F.*/">
+#    AuthUserFile /Applications/MAMP/htdocs/decider/.htpasswd
+#    AuthName "Please enter your ID and password"
+#    AuthType Basic
+#    require valid-user
+#</If>

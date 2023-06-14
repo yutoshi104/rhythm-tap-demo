@@ -1,0 +1,9 @@
+<!--
+<div class="container">
+    <aside class="footerbar">
+        <div class="footerbar-wrapper">
+            footerbar
+        </div>
+    </aside>
+</div>
+-->

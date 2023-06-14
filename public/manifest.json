@@ -1,0 +1,11 @@
+{  
+    "id": "YUTOSHI_WEBSITE_ID",
+    "name": "Yutoshi Website",
+    "version": "1.0.0",
+    "description": "Yutoshi Website",
+    "short_name": "Yutoshi Website",
+    "display": "standalone",
+    "theme_color": "#1e90ff",
+    "scope": "/",
+    "start_url": "/"
+}

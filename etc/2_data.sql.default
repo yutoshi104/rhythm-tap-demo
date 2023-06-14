@@ -1,0 +1,35 @@
+
+use spla_stage_db;
+
+
+-- --------------------------------------------------------------------------------------------------
+-- Auth
+-- --------------------------------------------------------------------------------------------------
+
+/* 管理者初期データ */
+INSERT INTO `admin` SET `admin_name` = '利川　悠斗', `admin_email` = "nagoya.yuto.0925@gmail.com", `admin_password` = "$2y$08$Q336MuaatCYjX/PMke69hOD1OVvWsM3IzM3G9l7U9nXpuV2LpKwSK", admin_position="1", intime = NOW(), uptime = NOW();
+
+/* ユーザー初期データ */
+INSERT INTO `user` SET `user_id` = 1, `user_name` = '利川　悠斗', `user_email` = "nagoya.yuto.0925@gmail.com", `user_password` = "$2y$08$Q336MuaatCYjX/PMke69hOD1OVvWsM3IzM3G9l7U9nXpuV2LpKwSK", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 1, `user_key` = 'yutoshi1', `user_nickname` = 'ゆうと1', `guest_flg` = 0;
+INSERT INTO `user` SET `user_id` = 2, `user_name` = '利川　悠斗2', `user_email` = "yuto+2@example.com", `user_password` = "$2y$08$Q336MuaatCYjX/PMke69hOD1OVvWsM3IzM3G9l7U9nXpuV2LpKwSK", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 2, `user_key` = 'yutoshi2', `user_nickname` = 'ゆうと2', `guest_flg` = 0;
+INSERT INTO `user` SET `user_id` = 3, `user_name` = '利川　悠斗3', `user_email` = "yuto+3@example.com", `user_password` = "$2y$08$Q336MuaatCYjX/PMke69hOD1OVvWsM3IzM3G9l7U9nXpuV2LpKwSK", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 3, `user_key` = 'yutoshi3', `user_nickname` = 'ゆうと3', `guest_flg` = 0;
+INSERT INTO `user` SET `user_id` = 4, `user_name` = 'ゲスト', `user_email` = "guest+4@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 4, `user_key` = 'yutoshi4', `user_nickname` = 'ゆうと4', `guest_flg` = 1;
+INSERT INTO `user` SET `user_id` = 5, `user_name` = 'ゲスト', `user_email` = "guest+5@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 5, `user_key` = 'yutoshi5', `user_nickname` = 'ゆうと5', `guest_flg` = 1;
+INSERT INTO `user` SET `user_id` = 6, `user_name` = 'ゲスト', `user_email` = "guest+6@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 6, `user_key` = 'yutoshi6', `user_nickname` = 'ゆうと6', `guest_flg` = 1;
+INSERT INTO `user` SET `user_id` = 7, `user_name` = 'ゲスト', `user_email` = "guest+7@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 7, `user_key` = 'yutoshi7', `user_nickname` = 'ゆうと7', `guest_flg` = 1;
+INSERT INTO `user` SET `user_id` = 8, `user_name` = 'ゲスト', `user_email` = "guest+8@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 8, `user_key` = 'yutoshi8', `user_nickname` = 'ゆうと8', `guest_flg` = 1;
+INSERT INTO `user` SET `user_id` = 9, `user_name` = 'ゲスト', `user_email` = "guest+9@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 9, `user_key` = 'yutoshi9', `user_nickname` = 'ゆうと9', `guest_flg` = 1;
+INSERT INTO `user` SET `user_id` = 10, `user_name` = 'ゲスト', `user_email` = "guest+10@example.com", `user_password` = "", user_position="0", intime = NOW(), uptime = NOW();
+INSERT INTO `user_detail` SET `user_id` = 10, `user_key` = 'yutoshi10', `user_nickname` = 'ゆうと10', `guest_flg` = 1;
+
+-- --------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------

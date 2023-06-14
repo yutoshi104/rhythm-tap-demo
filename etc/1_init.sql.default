@@ -1,0 +1,270 @@
+
+create database if not exists spla_stage_db character set utf8mb4;
+use spla_stage_db;
+
+-- --------------------------------------------------------------------------------------------------
+-- Auth
+-- --------------------------------------------------------------------------------------------------
+
+/* admin */
+-- create文
+create table if not exists `admin`(
+admin_id int unsigned not null auto_increment primary key,
+admin_name varchar(32) not null,
+admin_email varchar(256) not null,
+admin_password varchar(256) not null,
+admin_position tinyint unsigned not null default 0,
+status tinyint(1) unsigned not null default 0,
+last_login datetime,
+last_access datetime,
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00',
+delf tinyint(1) unsigned not null default 0,
+INDEX `admin` (`admin_id`, `delf`),
+INDEX `admin_login` (`admin_email`, `delf`)
+);
+-- show create文
+
+
+/* admin_session */
+-- create文
+create table if not exists `admin_session`(
+session_id varchar(127) unique not null,
+admin_id int unsigned not null,
+ip varchar(32) not null,
+ua varchar(256) not null,
+deltime datetime not null DEFAULT '1000-01-01 00:00:00',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `admin_session_del` (`deltime`)
+);
+-- show create文
+
+/* admin_password_session */
+-- create文
+create table if not exists `admin_password_session`(
+session_id varchar(127) unique not null,
+admin_id int unsigned unique not null,
+ip varchar(32) not null,
+ua varchar(256) not null,
+deltime datetime not null DEFAULT '1000-01-01 00:00:00',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `admin_password_session_del` (`deltime`)
+);
+-- show create文
+
+
+/* user */
+-- create文
+create table if not exists `user`(
+user_id bigint unsigned not null auto_increment primary key,
+user_name varchar(32) not null,
+user_email varchar(256) not null,
+user_password varchar(256) not null,
+user_position tinyint unsigned not null default 0,
+status tinyint(1) unsigned not null default 0,
+last_login datetime,
+last_access datetime,
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00',
+delf tinyint(1) unsigned not null default 0,
+INDEX `user` (`user_id`, `delf`),
+INDEX `user_login` (`user_email`, `delf`)
+);
+-- show create文
+
+/* user_detail */
+-- create文
+create table if not exists `user_detail`(
+user_id bigint unsigned not null unique,
+user_key varchar(50) not null unique,
+user_nickname varchar(50) not null,
+guest_flg tinyint(1) unsigned not null default 0
+);
+-- show create文
+
+/* user_session */
+-- create文
+create table if not exists `user_session`(
+session_id varchar(127) unique not null,
+user_id bigint unsigned not null,
+ip varchar(32) not null,
+ua varchar(256) not null,
+deltime datetime not null DEFAULT '1000-01-01 00:00:00',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `user_session_del` (`deltime`)
+);
+-- show create文
+
+/* user_password_session */
+-- create文
+create table if not exists `user_password_session`(
+session_id varchar(127) unique not null,
+user_id bigint unsigned unique not null,
+ip varchar(32) not null,
+ua varchar(256) not null,
+deltime datetime not null DEFAULT '1000-01-01 00:00:00',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `user_password_session_del` (`deltime`)
+);
+-- show create文
+
+/* user_email_session */
+-- create文
+create table if not exists `user_email_session`(
+session_id varchar(127) unique not null,
+user_email varchar(256) not null,
+ip varchar(32) not null,
+ua varchar(256) not null,
+deltime datetime not null DEFAULT '1000-01-01 00:00:00',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `user_email_session_del` (`deltime`)
+);
+-- show create文
+
+-- --------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------
+
+
+
+-- --------------------------------------------------------------------------------------------------
+-- 退会
+-- --------------------------------------------------------------------------------------------------
+
+/* contact */
+-- create文
+create table if not exists `user_leave`(
+leave_id bigint unsigned not null auto_increment primary key,
+user_id bigint unsigned,
+leave_reason int unsigned not null,
+leave_detail text not null,
+status tinyint(1) unsigned not null default 0,
+checked tinyint(1) unsigned not null default 0,
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00'
+);
+-- show create文
+
+-- --------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------
+
+
+
+-- --------------------------------------------------------------------------------------------------
+-- ファイル保存
+-- --------------------------------------------------------------------------------------------------
+
+/* 画像 */
+-- create文
+create table if not exists image(
+image_id bigint unsigned not null auto_increment primary key,
+image_category tinyint unsigned not null default '0',
+image_subcategory tinyint unsigned not null default '0',
+image_key_id int unsigned not null default '0',
+image_key_id2 int unsigned not null default '0',
+image_type tinyint unsigned not null default '0',
+image_name text,
+image_path text,
+image_thumb_path text,
+image_size int unsigned not null default '0',
+image_height int unsigned not null default '0',
+image_width int unsigned not null default '0',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `image` (`image_category`, `image_subcategory`, `image_key_id`, `image_key_id2`)
+);
+-- show create文
+
+/* ファイル */
+-- create文
+create table if not exists file(
+file_id bigint unsigned not null auto_increment primary key,
+file_category tinyint unsigned not null default '0',
+file_subcategory tinyint unsigned not null default '0',
+file_key_id int unsigned not null default '0',
+file_key_id2 int unsigned not null default '0',
+file_mime_type text,
+file_name text,
+file_path text,
+file_size int unsigned not null default '0',
+intime datetime not null DEFAULT '1000-01-01 00:00:00',
+uptime datetime not null DEFAULT '1000-01-01 00:00:00',
+INDEX `file` (`file_category`, `file_subcategory`, `file_key_id`, `file_key_id2`)
+);
+-- show create文
+
+
+-- --------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------
+
+
+
+-- --------------------------------------------------------------------------------------------------
+-- ログ・報告
+-- --------------------------------------------------------------------------------------------------
+
+/* adminlog */
+-- create文
+create table if not exists `admin_log`(
+admin_id int unsigned,
+ip varchar(32) not null,
+ua varchar(256) not null,
+action varchar(256) not null,
+detail text,
+url text not null,
+status tinyint(1) unsigned not null default 0,
+intime datetime not null DEFAULT '1000-01-01 00:00:00'
+);
+-- show create文
+
+/* user_log */
+-- create文
+create table if not exists `user_log`(
+user_id bigint unsigned default null,
+ip varchar(32) not null,
+ua varchar(256) not null,
+action varchar(256) not null,
+detail text,
+url text not null,
+status tinyint(1) unsigned not null default 0,
+intime datetime not null DEFAULT '1000-01-01 00:00:00'
+);
+-- show create文
+
+
+-- --------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+-- --------------------------------------------------------------------------------------------------
+-- 問い合わせ
+-- --------------------------------------------------------------------------------------------------
+
+/* contact */
+-- create文
+create table if not exists contact(
+contact_id bigint unsigned not null auto_increment primary key,
+user_id int unsigned,
+contact_name varchar(200) not null,
+contact_email varchar(256) not null,
+contact_type int unsigned not null,
+contact_detail text not null,
+status tinyint(1) unsigned not null default 0,
+checked tinyint(1) unsigned not null default 0,
+intime datetime not null DEFAULT '1000-01-01 00:00:00'
+);
+-- show create文
+
+-- --------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------
+
+
+
+
+

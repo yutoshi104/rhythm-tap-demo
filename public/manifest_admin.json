@@ -1,0 +1,7 @@
+{  
+    "name": "Yuto's Portfolio Website 管理画面",
+    "short_name": "Yuto's Portfolio Website 管理画面",
+    "display": "standalone",
+    "scope": "/yt-admin/",
+    "start_url": "/yt-admin/"
+}
