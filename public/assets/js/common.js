@@ -194,7 +194,7 @@ if(location.pathname.match(/acceleration/g)){
             const aZ = event.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
 
             let str = "";
-            for (key in event.accelerationIncludingGravity){
+            for (key in event.accelerationIncludingGravity.x){
                 str += String(key)+", ";
             }
 
