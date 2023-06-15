@@ -189,9 +189,9 @@ if(location.pathname.match(/acceleration/g)){
         window.addEventListener("devicemotion", function(event){
             document.getElementById("result").innerHTML = "加速度センサーの変化を検知しました。";
             console.log(event);
-            const aX = event.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
-            const aY = event.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
-            const aZ = event.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
+            const ax = event.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
+            const ay = event.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
+            const az = event.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
 
             let ax_elem = document.getElementById('ax');
             let ay_elem = document.getElementById('ay');
