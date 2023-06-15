@@ -3,10 +3,10 @@
     <div class="container">
         <main>
             <h1>加速度センサーのデモ</h1>
-            <p id="result"></p>
-            <p id="ax"></p>
-            <p id="ay"></p>
-            <p id="az"></p>
+            <div id="result"></div>
+            <div id="ax"></div>
+            <div id="ay"></div>
+            <div id="az"></div>
         </main>
         <?php 
             if(file_exists(VIEW_DIR."/user/sidebar.inc")){
