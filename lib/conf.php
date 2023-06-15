@@ -44,13 +44,13 @@ define("COPYRIGHT_EMAIL", sprintf("Copyright %s Yuto All Right Reserved.", date(
 define("SITE_NAME","Takase Rhythm Tap");
 
 # SEO対策
-define("META_TITLE", "Yutoshi Website");
-define("META_DESCRIPTION", "Yutoのポートフォリオサイトです。趣味としてWeb開発しながらいろいろ勉強中の".floor((date("Ymd")-date("19990925"))/10000)."歳大学生です。 インターンでもエンジニアとしてWeb開発をしていて、大学の研究ではディープラーニングの研究なんかもやってます。");
-define("META_KEYWORDS", "ポートフォリオ, Yuto, ゆうと, ユウト, portfolio, 学生, エンジニア, ブログ");
+define("META_TITLE", "Takase Rhythm Tap");
+define("META_DESCRIPTION", "Rhythm Tap認証のアプリ開発のデモです。");
+define("META_KEYWORDS", "");
 define("META_TYPE", "website");
 define("META_URL", HTTP_USER);
 define("META_LOCALE", "ja_JP");
-define("META_SITE_NAME", "Yutoshi Website");
+define("META_SITE_NAME", "Takase Rhythm Tap");
 define("META_TWITTER_ID", "@".TWITTER_USERNAME);
 define("META_TWITTER_CARD", "summary_large_image");
 define("META_TWITTER_IMAGE", HTTP_USER2."/assets/src/twitter_card.png");
