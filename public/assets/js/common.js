@@ -258,8 +258,6 @@ if(location.pathname.match(/vibration/g) !== null){
         }else{
             alert("Not support.");
         }
-        // let result = window.navigator.vibrate(200);
-        // document.getElementById('result').innerHTML = String(result);
     });
 }
 
