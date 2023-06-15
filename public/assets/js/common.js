@@ -210,7 +210,7 @@ if(location.pathname.match(/acceleration/g)){
                 console.log('y: '+String(ay));
                 console.log('z: '+String(az));
             }
-        });
+        }, true);
     }else{
         document.getElementById("result").innerHTML = "加速度センサーが検知できませんでした。";
     }
