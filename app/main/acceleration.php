@@ -6,11 +6,11 @@
     require_once($lib_dir."/common_inc.php");
 
     # DB connect
-    $db = new Db();
-    if( $db->init_master() === false ) {
-        sendErrorLog(500,"500 Internal Server Error","サーバーエラー発生。DBの接続に失敗しています。error_message：".$db->getErr());
-        displayUserErrorExit(500,"500 Internal Server Error","サーバーエラーが発生しています。しばらく時間をおいてもう一度アクセスしてください。しばらく経ってもエラーが解消しない場合、管理者へご連絡ください。");
-    }
+    // $db = new Db();
+    // if( $db->init_master() === false ) {
+    //     sendErrorLog(500,"500 Internal Server Error","サーバーエラー発生。DBの接続に失敗しています。error_message：".$db->getErr());
+    //     displayUserErrorExit(500,"500 Internal Server Error","サーバーエラーが発生しています。しばらく時間をおいてもう一度アクセスしてください。しばらく経ってもエラーが解消しない場合、管理者へご連絡ください。");
+    // }
 
 
 

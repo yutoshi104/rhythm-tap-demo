@@ -1,13 +1,13 @@
 <?php
 
 # ディレクトリ
-define("BASE_DIR", "/var/www/html/yutoshi.com/portfolio");
+define("BASE_DIR", "/var/www/html/yutoshi.com/rhythm-tap-demo");
 
 # エラー表示させない
 ini_set('display_errors', 0);
 
 # 各種設定
-define("DOMAIN", "portfolio.yutoshi.com");
+define("DOMAIN", "rhythm-tap-demo.yutoshi.com");
 define("PROTOCOL","https");
 define("HTTP_ADMIN", sprintf("%s://%s/yt-admin/", PROTOCOL, DOMAIN));
 define("HTTP_USER", sprintf("%s://%s/", PROTOCOL, DOMAIN));

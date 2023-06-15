@@ -7,5 +7,5 @@ require_once(__DIR__."/conf.php");
 require_once(__DIR__."/common_func.php");
 
 # クラスファイル
-require_once(__DIR__."/Db.php");
+// require_once(__DIR__."/Db.php");
 require_once(__DIR__."/View.php");

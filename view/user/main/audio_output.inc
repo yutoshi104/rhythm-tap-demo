@@ -3,7 +3,9 @@
     <div class="container">
         <main>
             <h1>音声出力のデモ</h1>
-            <p>main</p>
+            <button id="btn">
+                再生
+            </button>
         </main>
         <?php 
             if(file_exists(VIEW_DIR."/user/sidebar.inc")){

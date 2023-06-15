@@ -179,67 +179,70 @@ function saveElemImage(elem,name="image"){
 
 
 
-
+console.log(location.pathname.match(/acceleration/g));
 
 
 
 // 加速度センサー
-window.addEventListener("devicemotion", (dat) => {
-    document.getElementById("result").innerHTML = "加速度センサーが検知されました。";
-    console.log(dat);
-    console.log(dat.accelerationIncludingGravity);
-    const aX = dat.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
-    const aY = dat.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
-    const aZ = dat.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
-
-    let ax_elem = document.getElementById('ax');
-    let ay_elem = document.getElementById('ay');
-    let az_elem = document.getElementById('az');
-    if(ax_elem && ay_elem && az_elem){
-        ax_elem.innerHTML = ax;
-        ay_elem.innerHTML = ay;
-        az_elem.innerHTML = az;
-    }else{
-        console.log('x: '+String(ax));
-        console.log('y: '+String(ay));
-        console.log('z: '+String(az));
-    }
-});
-
-
-
-// document.addEventListener("load", function() { DeviceMotionEvent.requestPermission(); });
-// window.addEventListener("deviceorientation", function(e){
-//     document.getElementById("result").innerHTML = "加速度センサーが検知されました。";
-//     const absolute = e.absolute;
-//     const alpha = e.alpha;
-//     const beta = e.beta;
-//     const gamma = e.gamma;
-
-//     if(!location.pathname.match(/^\/acceleration\/?$/)){
-//         return false;
-//     }
-
-//     let absolute_elem = document.getElementById('absolute');
-//     let alpha_elem = document.getElementById('alpha');
-//     let beta_elem = document.getElementById('beta');
-//     let gamma_elem = document.getElementById('gamma');
-//     if(absolute_elem && alpha_elem && beta_elem && gamma_elem){
-//         absolute_elem.innerHTML = absolute;
-//         alpha_elem.innerHTML = alpha;
-//         beta_elem.innerHTML = beta;
-//         gamma_elem.innerHTML = gamma;
-//     }else{
-//         console.log('absolute'+String(absolute));
-//         console.log('alpha'+String(alpha));
-//         console.log('beta'+String(beta));
-//         console.log('gamma'+String(gamma));
-//     }
-// }, false);
+if(location.pathname.match(/acceleration/g)){
+    window.addEventListener("devicemotion", (dat) => {
+        document.getElementById("result").innerHTML = "加速度センサーが検知されました。";
+        console.log(dat);
+        console.log(dat.accelerationIncludingGravity);
+        const aX = dat.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
+        const aY = dat.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
+        const aZ = dat.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
+    
+        let ax_elem = document.getElementById('ax');
+        let ay_elem = document.getElementById('ay');
+        let az_elem = document.getElementById('az');
+        if(ax_elem && ay_elem && az_elem){
+            ax_elem.innerHTML = ax;
+            ay_elem.innerHTML = ay;
+            az_elem.innerHTML = az;
+        }else{
+            console.log('x: '+String(ax));
+            console.log('y: '+String(ay));
+            console.log('z: '+String(az));
+        }
+    });
+}
 
 
 
 
+
+
+
+// バイブレーション
+if(location.pathname.match(/vibration/g) !== null){
+    document.getElementById('btn').addEventListener('click', function(){
+        console.log("振動");
+        if(window.navigator.vibrate){
+            window.navigator.vibrate(200);
+        }else if(window.navigator.mozVibrate){
+            window.navigator.mozVibrate(200);
+        }else if(window.navigator.webkitVibrate){
+            window.navigator.webkitVibrate(200);
+        }else{
+            alert("Not support.");
+        }
+        // let result = window.navigator.vibrate(200);
+        // document.getElementById('result').innerHTML = String(result);
+    });
+}
+
+
+
+
+
+// 音楽再生
+if(location.pathname.match(/audio_output/g) !== null){
+    document.getElementById('btn').addEventListener('click', function(){
+        var audio = new Audio('/assets/audio/merry.mp3#t=0,11');
+        audio.play();
+    });
+}
 
 
 
