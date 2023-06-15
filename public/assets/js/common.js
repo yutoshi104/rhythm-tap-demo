@@ -197,9 +197,9 @@ if(location.pathname.match(/acceleration/g)){
             let ay_elem = document.getElementById('ay');
             let az_elem = document.getElementById('az');
             if(ax_elem && ay_elem && az_elem){
-                ax_elem.textContent = ax;
+                ax_elem.textContent = event.accelerationIncludingGravity;
                 ay_elem.innerHTML = typeof ay;
-                az_elem.innerHTML = String(az);
+                az_elem.innerHTML = event.accelerationIncludingGravity;
             }else{
                 console.log('x: '+String(ax));
                 console.log('y: '+String(ay));
