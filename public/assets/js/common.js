@@ -250,12 +250,13 @@ if(location.pathname.match(/gyro/g)){
 if(location.pathname.match(/vibration/g) !== null){
     document.getElementById('btn').addEventListener('click', function(){
         console.log("振動");
-        if(window.navigator.vibrate){
-            window.navigator.vibrate(200);
-        }else if(window.navigator.mozVibrate){
-            window.navigator.mozVibrate(200);
-        }else if(window.navigator.webkitVibrate){
-            window.navigator.webkitVibrate(200);
+
+        if(navigator.vibrate){
+            navigator.vibrate(200);
+        }else if(navigator.mozVibrate){
+            navigator.mozVibrate(200);
+        }else if(navigator.webkitVibrate){
+            navigator.webkitVibrate(200);
         }else{
             alert("Not support.");
         }

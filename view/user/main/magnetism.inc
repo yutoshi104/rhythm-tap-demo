@@ -3,7 +3,8 @@
     <div class="container">
         <main>
             <h1>磁気センサーのデモ</h1>
-            <p>main</p>
+            <p>ジャイロセンサーのalphaと同じらしい</p>
+            <a href="/gyro/">ジャイロセンサーのデモ</a>
         </main>
         <?php 
             if(file_exists(VIEW_DIR."/user/sidebar.inc")){

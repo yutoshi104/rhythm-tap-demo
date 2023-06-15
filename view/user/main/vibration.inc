@@ -3,7 +3,6 @@
     <div class="container">
         <main>
             <h1>バイブレーションのデモ</h1>
-            <p>main</p>
             <button id="btn">振動</button>
             <div id="result"></div>
         </main>
