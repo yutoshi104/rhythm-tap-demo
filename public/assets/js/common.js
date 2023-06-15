@@ -249,18 +249,15 @@ if(location.pathname.match(/gyro/g)){
 // バイブレーション
 if(location.pathname.match(/vibration/g) !== null){
     document.getElementById('btn').addEventListener('click', function(){
-        console.log("振動");
-        navigator.vibrate(2000);
-
-        // if(navigator.vibrate){
-        //     navigator.vibrate(2000);
-        // }else if(navigator.mozVibrate){
-        //     navigator.mozVibrate(2000);
-        // }else if(navigator.webkitVibrate){
-        //     navigator.webkitVibrate(2000);
-        // }else{
-        //     alert("Not support.");
-        // }
+        if(navigator.vibrate){
+            navigator.vibrate(2000);
+        }else if(navigator.mozVibrate){
+            navigator.mozVibrate(2000);
+        }else if(navigator.webkitVibrate){
+            navigator.webkitVibrate(2000);
+        }else{
+            alert("Not support.");
+        }
         // let result = window.navigator.vibrate(200);
         // document.getElementById('result').innerHTML = String(result);
     });
