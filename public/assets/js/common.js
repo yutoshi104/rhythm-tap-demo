@@ -207,7 +207,36 @@ if(location.pathname.match(/acceleration/g)){
             }
         }, true);
     }else{
-        document.getElementById("result").innerHTML = "加速度センサーが検知できませんでした。";
+        document.getElementById("result").innerHTML = "DeviceMotionEventに対応していません。";
+    }
+}
+
+
+// ジャイロセンサー
+if(location.pathname.match(/gyro/g)){
+    if (window.DeviceOrientationEvent) {
+        document.getElementById("result").innerHTML = "DeviceOrientationEventに対応しています。";
+        window.addEventListener('deviceorientation', function(event) {
+            document.getElementById("result").innerHTML = "ジャイロセンサーの変化を検知しました。";
+            const alpha = event.alpha;
+            const beta = event.beta;
+            const gamma = event.gamma;
+
+            let alpha_elem = document.getElementById('alpha');
+            let beta_elem = document.getElementById('beta');
+            let gamma_elem = document.getElementById('gamma');
+            if(alpha_elem && beta_elem && gamma_elem){
+                alpha_elem.innerHTML = alpha;
+                beta_elem.innerHTML = beta;
+                gamma_elem.innerHTML = gamma;
+            }else{
+                console.log('alpha: '+String(alpha));
+                console.log('beta: '+String(beta));
+                console.log('gamma: '+String(gamma));
+            }
+        });
+    } else {
+        document.getElementById("result").innerHTML = "DeviceOrientationEventに対応していません。";
     }
 }
 

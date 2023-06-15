@@ -3,7 +3,10 @@
     <div class="container">
         <main>
             <h1>ジャイロセンサーのデモ</h1>
-            <p>main</p>
+            <div id="result"></div>
+            <div id="alpha"></div>
+            <div id="beta"></div>
+            <div id="gamma"></div>
         </main>
         <?php 
             if(file_exists(VIEW_DIR."/user/sidebar.inc")){
