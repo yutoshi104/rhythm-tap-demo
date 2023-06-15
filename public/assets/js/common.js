@@ -185,27 +185,29 @@ console.log(location.pathname.match(/acceleration/g));
 
 // 加速度センサー
 if(location.pathname.match(/acceleration/g)){
-    window.addEventListener("devicemotion", (dat) => {
+    if(window.DeviceMotionEvent){
         document.getElementById("result").innerHTML = "加速度センサーが検知されました。";
-        console.log(dat);
-        console.log(dat.accelerationIncludingGravity);
-        const aX = dat.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
-        const aY = dat.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
-        const aZ = dat.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
-    
-        let ax_elem = document.getElementById('ax');
-        let ay_elem = document.getElementById('ay');
-        let az_elem = document.getElementById('az');
-        if(ax_elem && ay_elem && az_elem){
-            ax_elem.innerHTML = ax;
-            ay_elem.innerHTML = ay;
-            az_elem.innerHTML = az;
-        }else{
-            console.log('x: '+String(ax));
-            console.log('y: '+String(ay));
-            console.log('z: '+String(az));
-        }
-    });
+        window.addEventListener("devicemotion", function(event){
+            const aX = event.accelerationIncludingGravity.x;    // x軸の重力加速度（Android と iOSでは正負が逆）
+            const aY = event.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
+            const aZ = event.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
+        
+            let ax_elem = document.getElementById('ax');
+            let ay_elem = document.getElementById('ay');
+            let az_elem = document.getElementById('az');
+            if(ax_elem && ay_elem && az_elem){
+                ax_elem.innerHTML = ax;
+                ay_elem.innerHTML = ay;
+                az_elem.innerHTML = az;
+            }else{
+                console.log('x: '+String(ax));
+                console.log('y: '+String(ay));
+                console.log('z: '+String(az));
+            }
+        });
+    }else{
+        document.getElementById("result").innerHTML = "加速度センサーが検知できませんでした。";
+    }
 }
 
 
