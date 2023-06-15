@@ -198,7 +198,7 @@ if(location.pathname.match(/acceleration/g)){
             let az_elem = document.getElementById('az');
             if(ax_elem && ay_elem && az_elem){
                 ax_elem.textContent = ax;
-                ay_elem.innerHTML = String(ay);
+                ay_elem.innerHTML = typeof ay;
                 az_elem.innerHTML = String(az);
             }else{
                 console.log('x: '+String(ax));
