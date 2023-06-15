@@ -193,11 +193,16 @@ if(location.pathname.match(/acceleration/g)){
             const aY = event.accelerationIncludingGravity.y;    // y軸の重力加速度（Android と iOSでは正負が逆）
             const aZ = event.accelerationIncludingGravity.z;    // z軸の重力加速度（Android と iOSでは正負が逆）
 
+            let str = "";
+            for (key in event.accelerationIncludingGravity){
+                str += String(key)+", ";
+            }
+
             let ax_elem = document.getElementById('ax');
             let ay_elem = document.getElementById('ay');
             let az_elem = document.getElementById('az');
             if(ax_elem && ay_elem && az_elem){
-                ax_elem.textContent = event.accelerationIncludingGravity;
+                ax_elem.innerHTML = str;
                 ay_elem.innerHTML = typeof ay;
                 az_elem.innerHTML = event.accelerationIncludingGravity;
             }else{
