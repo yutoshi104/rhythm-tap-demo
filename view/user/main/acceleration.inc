@@ -3,6 +3,8 @@
     <div class="container">
         <main>
             <h1>加速度センサーのデモ</h1>
+            <img src="/assets/img/acc_ios.jpg">
+            <img src="/assets/img/acc_android.jpg">
             <div id="result"></div>
             <div id="ax"></div>
             <div id="ay"></div>
